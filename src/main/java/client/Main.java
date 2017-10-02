@@ -12,7 +12,7 @@ public class Main {
         ClientHttpSender sender = new ClientHttpSender();
         RequestContainer container = new RequestContainer("http://127.0.0.1:8080/post");
         container.setMethod("POST");
-        Entity entity = new Entity("TEST");
+        String entity = "TEST";
         container.setBody(new RequestBody(entity, DataType.OBJECT));
         HttpResponse response = sender.doRequest(container);
         System.out.println("******************************");

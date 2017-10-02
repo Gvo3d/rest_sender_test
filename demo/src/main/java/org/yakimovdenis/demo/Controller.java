@@ -5,6 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.yakimovdenis.demo.model.IntObject;
+import org.yakimovdenis.demo.model.RequestTask;
+import org.yakimovdenis.demo.model.StringObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,12 @@ public class Controller {
         System.out.println("post with response envoked");
         printObject(object);
         return new ResponseEntity(data, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "*")
+    @RequestMapping(method = RequestMethod.POST, value = "/single", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public void test1(@RequestBody RequestTask object){
+        System.out.println("This is object: "+object+" of class: "+object.getClass());
     }
 
     private void printObject(Object object){
